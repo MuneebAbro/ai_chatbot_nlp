@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot Demo - Simple Embed</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+        }
+        .code-snippet {
+            background: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: monospace;
+            overflow-x: auto;
+            margin: 10px 0;
+            border-left: 4px solid #007bff;
+        }
+        .info-box {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid #28a745;
+        }
+        .color-example {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            margin-right: 10px;
+            border: 2px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🤖 Chatbot Widget Demo</h1>
+        <p class="subtitle">Simple One-Liner Embed with Color Customization</p>
+        
+        <div class="info-box">
+            <h3>✅ Simple Embed (Recommended)</h3>
+            <p>Just one line of code for your customers:</p>
+            <div class="code-snippet">
+&lt;script src="https://bitpack-widget.vercel.app/widget/embed/test"&gt;&lt;/script&gt;
+            </div>
+        </div>
+
+        <div class="info-box">
+            <h3>🎨 Color Customization</h3>
+            <p>Add primary and secondary colors for perfect contrast:</p>
+            <div class="code-snippet">
+&lt;script src="https://bitpack-widget.vercel.app/widget/embed/test?color=%23FFC0CB&secondary=%23000000"&gt;&lt;/script&gt;
+            </div>
+            <p><strong>Available color parameters:</strong></p>
+            <ul>
+                <li><code>color</code> - Primary color for buttons and backgrounds</li>
+                <li><code>secondary</code> - Text and icon color (for contrast)</li>
+                <li><code>theme</code> - Alternative to color</li>
+                <li><code>text</code> - Alternative to secondary</li>
+                <li><code>icon</code> - Alternative to secondary</li>
+                <li><code>position</code> - Widget position (bottom-right, bottom-left, top-right, top-left)</li>
+            </ul>
+        </div>
+
+        <div class="info-box">
+            <h3>🌈 Color Examples</h3>
+            
+            <h4>Pink Theme with Black Text:</h4>
+            <div class="code-snippet">
+&lt;script src="https://bitpack-widget.vercel.app/widget/embed/test?color=%23FFC0CB&secondary=%23000000"&gt;&lt;/script&gt;
+            </div>
+            <span class="color-example" style="background: #FFC0CB;"></span>Primary: #FFC0CB (Pink) | <span class="color-example" style="background: #000000;"></span>Secondary: #000000 (Black)
+            
+            <h4>White Theme with Blue Text:</h4>
+            <div class="code-snippet">
+&lt;script src="https://bitpack-widget.vercel.app/widget/embed/test?color=%23FFFFFF&secondary=%23007BFF"&gt;&lt;/script&gt;
+            </div>
+            <span class="color-example" style="background: #FFFFFF; border: 1px solid #ccc;"></span>Primary: #FFFFFF (White) | <span class="color-example" style="background: #007BFF;"></span>Secondary: #007BFF (Blue)
+            
+            <h4>Dark Theme with White Text:</h4>
+            <div class="code-snippet">
+&lt;script src="https://bitpack-widget.vercel.app/widget/embed/test?color=%23333&secondary=%23FFFFFF"&gt;&lt;/script&gt;
+            </div>
+            <span class="color-example" style="background: #333;"></span>Primary: #333 (Dark Gray) | <span class="color-example" style="background: #FFFFFF; border: 1px solid #ccc;"></span>Secondary: #FFFFFF (White)
+        </div>
+
+        <div class="info-box">
+            <h3>📝 Manual Setup (Advanced)</h3>
+            <p>For advanced customization, use the manual approach:</p>
+            <div class="code-snippet">
+&lt;script src="https://bitpack-widget.vercel.app/widget/chatbot.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+  initChatbotWidget({
+    apiUrl: 'https://bitpack-widget.vercel.app/api',
+    businessId: 'test',
+    color: '#FFC0CB',
+    secondary: '#000000'
+  });
+&lt;/script&gt;
+            </div>
+        </div>
+
+        <div class="info-box">
+            <h3>🔧 Business Configuration</h3>
+            <p><strong>Business ID:</strong> test</p>
+            <p><strong>Server URL:</strong> https://bitpack-widget.vercel.app</p>
+            <p><strong>Status:</strong> <span style="color: green;">Active</span></p>
+        </div>
+    </div>
+
+    <!-- Example: Pink theme with black text -->
+   <script src="https://bitpack-widget.vercel.app/widget/embed/goodwins?color=%23004A48&secondary=%23FFFFFF"></script>  -->
+      <!-- <script src="https://bitpack-widget.vercel.app/widget/embed/goodwins"></script>-->
+       <!-- <script src="http://localhost:3002/widget/embed/goodwins?color=%23004A48&secondary=%23FFFFFF"></script> -->
+</body>
+</html>
