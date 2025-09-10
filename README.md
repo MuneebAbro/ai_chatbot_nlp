@@ -1,6 +1,6 @@
-# Multi-Business WhatsApp Chatbot
+# Multi-Business Chatbot API
 
-A scalable, AI-powered WhatsApp chatbot system that can handle multiple businesses with individual knowledge bases, configurations, and personalities.
+A scalable, AI-powered chatbot system that can handle multiple businesses with individual knowledge bases, configurations, and personalities.
 
 ## 🚀 Features
 
@@ -8,31 +8,10 @@ A scalable, AI-powered WhatsApp chatbot system that can handle multiple business
 - **AI-Powered Responses**: Uses Groq API with Llama models for natural conversations
 - **Knowledge Base Integration**: RAG (Retrieval Augmented Generation) with Supabase
 - **Customizable Personalities**: Each business can have unique chatbot personalities
-- **Business Hours Support**: Automatic out-of-hours responses
-- **Message Filtering**: Control which chats and contacts the bot responds to
 - **Session Management**: Maintains conversation context per user
 - **Caching System**: Optimized performance with intelligent caching
 - **Admin Dashboard**: Debug endpoints for monitoring and management
 
-## 📁 Project Structure
-
-```
-multi-business-whatsapp-chatbot/
-├── config/
-│   ├── app.js              # Application configuration
-│   └── database.js         # Database connection setup
-├── services/
-│   ├── BusinessService.js  # Business data management
-│   ├── AIService.js        # AI response generation
-│   └── RAGService.js       # Knowledge retrieval system
-├── whatsapp-sessions/      # WhatsApp session storage
-├── logs/                   # Application logs
-├── server.js               # Main API server
-├── WhatsAppClient.js       # WhatsApp client manager
-├── package.json
-├── .env.example
-└── README.md
-```
 
 ## 🛠️ Installation
 
@@ -140,23 +119,6 @@ npm start
 
 The server will run on `http://localhost:3002`
 
-### Start WhatsApp Clients
-
-```bash
-npm run whatsapp
-```
-
-Scan the QR codes for each business to authenticate.
-
-### Development Mode
-
-```bash
-# API Server with auto-reload
-npm run dev
-
-# WhatsApp clients with auto-reload
-npm run whatsapp:dev
-```
 
 ## 📊 API Endpoints
 
@@ -274,40 +236,20 @@ Customize the chatbot personality for each business by updating the `system_prom
 }
 ```
 
-### WhatsApp Behavior
-
-Configure WhatsApp client behavior in your `.env`:
-
-```env
-# Only reply to saved contacts
-ONLY_SAVED_CONTACTS=true
-
-# Enable group chats
-ENABLE_GROUPS=true
-
-# Business hours
-BUSINESS_HOURS_ENABLED=true
-BUSINESS_START_HOUR=09:00
-BUSINESS_END_HOUR=17:00
-```
 
 ## 🔧 Troubleshooting
 
 ### Common Issues
 
-1. **WhatsApp QR Code Not Scanning**
-   - Ensure Puppeteer is properly installed
-   - Try running in non-headless mode: `PUPPETEER_HEADLESS=false`
-
-2. **Database Connection Errors**
+ **Database Connection Errors**
    - Verify Supabase URL and key in `.env`
    - Check if tables exist and have correct structure
 
-3. **AI Responses Not Working**
+ **AI Responses Not Working**
    - Verify Groq API key is valid
    - Check API rate limits
 
-4. **Cache Issues**
+ **Cache Issues**
    - Clear cache: `curl -X POST http://localhost:3002/api/admin/cache/clear`
 
 ### Debug Mode
@@ -416,5 +358,3 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 - Review the API documentation
 
 ---
-
-**Built with ❤️ for multi-business automation**
