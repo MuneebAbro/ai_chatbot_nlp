@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Pretty Chatbot Page</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg: #F6FBFA;
+      --card: #FFFFFF;
+      --muted: #6B7280;
+      --accent: #004A48;
+      --accent-2: #FFFFFF;
+    }
+    *{box-sizing:border-box}
+    body{font-family:Inter,system-ui,Segoe UI,Roboto,'Helvetica Neue',Arial; margin:0; background:linear-gradient(180deg,var(--bg) 0%, #ECF6F5 100%); color:#0f172a}
+    .container{max-width:1100px;margin:48px auto;padding:28px}
+    .header{display:flex;gap:20px;align-items:center}
+    .logo{width:72px;height:72px;border-radius:16px;background:linear-gradient(135deg,var(--accent),#00695f);display:flex;align-items:center;justify-content:center;color:var(--accent-2);font-weight:800;font-size:20px;box-shadow:0 6px 24px rgba(0,0,0,0.08)}
+    h1{margin:0;font-size:28px}
+    p.lead{margin:6px 0 0;color:var(--muted)}
+
+    .grid{display:grid;grid-template-columns:1fr 420px;gap:24px;margin-top:28px}
+
+    .card{background:var(--card);padding:20px;border-radius:14px;box-shadow:0 6px 18px rgba(6,22,22,0.06)}
+    .features{display:flex;flex-direction:column;gap:12px}
+    .feature{display:flex;gap:12px;align-items:flex-start}
+    .badge{width:44px;height:44px;border-radius:10px;background:#EEF7F6;display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--accent)}
+
+    .right{position:relative}
+    .widget-wrap{height:680px;border-radius:12px;overflow:hidden;border:1px solid rgba(2,6,23,0.06)}
+    .hint{font-size:13px;color:var(--muted);margin-top:10px}
+
+    footer{margin-top:22px;text-align:center;color:var(--muted);font-size:13px}
+
+    /* responsive */
+    @media (max-width:980px){
+      .grid{grid-template-columns:1fr;}
+      .widget-wrap{height:520px}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="logo">CB</div>
+      <div>
+        <h1>Pretty Chatbot Page</h1>
+        <p class="lead">A clean, responsive page that loads your chatbot widget. Customize colors, copy, or layout — everything is editable.</p>
+      </div>
+    </div>
+
+    <div class="grid">
+      <div>
+        <div class="card">
+          <h2 style="margin-top:0">About this widget</h2>
+          <p class="lead">This demo page embeds your chatbot widget. The right-hand column loads the widget script you provided and shows it inside a polished card so you can see how it will look on a real site.</p>
+
+          <div style="height:18px"></div>
+
+          <div class="features">
+            <div class="feature"><div class="badge">1</div><div><strong>Responsive</strong><div style="color:var(--muted)">Layouts adapt to mobile and desktop.</div></div></div>
+            <div class="feature"><div class="badge">2</div><div><strong>Accessible</strong><div style="color:var(--muted)">Simple semantic HTML and decent contrast.</div></div></div>
+            <div class="feature"><div class="badge">3</div><div><strong>Easy to customize</strong><div style="color:var(--muted)">Swap colors, fonts or copy in one file.</div></div></div>
+          </div>
+
+          <div style="height:18px"></div>
+          <details>
+            <summary style="cursor:pointer;padding:8px 12px;border-radius:8px;background:#F3F9F8">Embed script (click to expand)</summary>
+            <pre style="white-space:pre-wrap;padding:12px;background:#0F172A;color:#fff;border-radius:8px;margin-top:12px;overflow:auto">&lt;script src="https://ai-chatbot-nlp.vercel.app/widget/embed/goodwins?color=%23004A48&secondary=%23FFFFFF"&gt;&lt;/script&gt;</pre>
+          </details>
+
+        </div>
+
+        <footer>
+          Tip: to change the accent color, edit the URL's <code>color</code> parameter in the widget script.
+        </footer>
+      </div>
+
+      <div class="right">
+        <div class="card">
+          <h3 style="margin:0 0 8px 0">Live widget preview</h3>
+          <div class="widget-wrap" id="chat-widget-area">
+            <!-- The widget script is loaded below and will inject the chatbot into this page -->
+          </div>
+          <div class="hint">If the widget does not appear, check the browser console or CORS settings of the widget provider.</div>
+        </div>
+
+        <div style="height:12px"></div>
+        <div style="display:flex;gap:8px">
+          <a href="#chat-widget-area" style="text-decoration:none;padding:10px 14px;border-radius:10px;background:var(--accent);color:var(--accent-2);font-weight:600">Open chat</a>
+          <a href="#" style="text-decoration:none;padding:10px 14px;border-radius:10px;background:#E6F6F5;color:var(--accent);font-weight:600">Customize</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Insert the user's widget script below -->
+  <script src="https://ai-chatbot-nlp.vercel.app/widget/embed/goodwins?color=%23004A48&secondary=%23FFFFFF"></script>
+
+  <!-- Small inline helper to move the widget into our preview area if the provider appends to body
+       (This is optional and may be adapted depending on how the widget injects itself) -->
+  <script>
+    (function(){
+      // Try a few times to find an injected widget element and move it into the preview.
+      function moveWidget(){
+        var area = document.getElementById('chat-widget-area');
+        if(!area) return;
+        // common container guesses
+        var candidates = document.querySelectorAll('iframe, .chat-widget, #widget, [data-widget]');
+        if(candidates.length){
+          candidates.forEach(function(node){
+            if(!area.contains(node)){
+              try{ area.appendChild(node); }catch(e){}
+            }
+          });
+          return true;
+        }
+        return false;
+      }
+      var attempts = 0;
+      var t = setInterval(function(){ attempts++; if(moveWidget()||attempts>10) clearInterval(t); },700);
+    })();
+  </script>
+</body>
+</html>
